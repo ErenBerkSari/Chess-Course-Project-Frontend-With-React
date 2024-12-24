@@ -377,7 +377,7 @@ function Home() {
                       <img
                         src={
                           user.profileImage
-                            ? `http://localhost:3000${user.profileImage}`
+                            ? `https://chess-course-project-backend-with-node-js.onrender.com${user.profileImage}`
                             : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                         }
                         width={25}
