@@ -13,6 +13,7 @@ import Register from "./components/Auth/Register";
 import "../src/assets/Auth/css/styles.min.css";
 import { checkAuth } from "./redux/slices/authSlice";
 import { useEffect } from "react";
+import ClipLoader from "./ClipLoader";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,17 @@ function App() {
   }, [dispatch]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          textAlign: "center",
+          padding: "20px",
+        }}
+      >
+        <ClipLoader color="#4caf50" loading={true} size={50} />
+        <div>Yükleniyor, lütfen bekleyin...</div>
+      </div>
+    );
   }
   return (
     <div>
