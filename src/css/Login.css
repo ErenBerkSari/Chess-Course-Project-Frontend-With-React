@@ -1,4 +1,4 @@
-@import "../assets/Auth/libs/simplebar/dist/simplebar.css";
+@import "../assets/Auth/libs/simplebar/src/simplebar.css";
 @import "../assets/Auth/css/icons/tabler-icons/tabler-icons.css";
 :root,
 [data-bs-theme="light"] {
