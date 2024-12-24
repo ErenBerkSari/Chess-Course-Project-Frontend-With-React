@@ -13,7 +13,7 @@ import Register from "./components/Auth/Register";
 import "../src/assets/Auth/css/styles.min.css";
 import { checkAuth } from "./redux/slices/authSlice";
 import { useEffect } from "react";
-import ClipLoader from "./ClipLoader";
+import ClipLoader from "../src/components/ClipLoader";
 
 function App() {
   const dispatch = useDispatch();
