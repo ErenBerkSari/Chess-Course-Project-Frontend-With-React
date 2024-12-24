@@ -1,0 +1,156 @@
+/* Global Styles */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f0f2f5;
+  color: #2c3e50;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Game Page Container */
+.game-page {
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chessboard {
+  margin-left: 20px;
+}
+/* Chessboard Container */
+.chessboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Button Styles */
+.chess-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  gap: 15px;
+  height: 450px;
+}
+
+.reset-game-button,
+.difficulty-buttons button {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.reset-game-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.reset-game-button:hover {
+  background-color: #c0392b;
+}
+
+.difficulty-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.difficulty-buttons h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.difficulty-buttons button {
+  background-color: #3498db;
+  color: white;
+}
+
+.difficulty-buttons button:hover {
+  background-color: #2980b9;
+}
+
+.game-status {
+  text-align: center;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 15px 0;
+}
+
+/* Move Log */
+.move-log-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  padding: 15px;
+  max-height: 400px;
+  width: 300px;
+  overflow-y: auto;
+}
+
+.move-log-container h5 {
+  color: #34495e;
+}
+
+.move-log-container p {
+  margin: 5px 0;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.move-log-container p:nth-child(even) {
+  background-color: #f1f3f5;
+}
+
+/* Loading Indicator */
+.loading {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .chessboard-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .move-log-container,
+  .chess-btn-group {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+.difficulty-buttons button.selected {
+  background-color: #1abc9c;
+  color: white;
+  font-weight: bold;
+}

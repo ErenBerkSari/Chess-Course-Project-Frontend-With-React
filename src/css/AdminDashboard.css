@@ -1,0 +1,37 @@
+.admin-box {
+  width: 350px;
+  height: 350px;
+  margin: 45px;
+  cursor: pointer;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-admin {
+  font-size: 30px;
+  color: #fff;
+}
+
+#box1 {
+  background-image: url(../assets/Auth/images/logos/user-admin.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 250px;
+}
+
+#box2 {
+  background-image: url(../assets/Auth/images/logos/lesson-admin.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 250px;
+}
