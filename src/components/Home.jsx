@@ -20,8 +20,9 @@ function Home() {
     user: currentUser,
   } = useSelector((state) => state.auth);
   const { articles, isLoadingArticle } = useSelector((state) => state.article);
-  const { users, isLoadingHome } = useSelector((store) => store.user);
   const { lessons, isLoadingHomeLesson } = useSelector((store) => store.lesson);
+  const { users, isLoadingHome } = useSelector((store) => store.user);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState(null);
