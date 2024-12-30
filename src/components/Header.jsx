@@ -24,7 +24,7 @@ function Header() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -45,32 +45,32 @@ function Header() {
               <ul className="navbar-nav nav ml-auto">
                 <li className="header-nav-item">
                   <Link to="/" className="nav-link">
-                    <span>Anasayfa</span>
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
                   <Link to="/myLessons" className="nav-link">
-                    <span>Derslerim</span>
+                    <span>My Lessons</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
                   <Link to="/game" className="nav-link">
-                    <span>Oyna</span>
+                    <span>Play</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
                   <Link to="/userGuide" className="nav-link">
-                    <span>Kullanıcı Kılavuzu</span>
+                    <span>User Guide</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
                   <Link to={`/profile/${user.userId}`} className="nav-link">
-                    <span>Profil</span>
+                    <span>Profile</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
                   <a style={{ cursor: "pointer" }} className="nav-link">
-                    <span onClick={handleLogout}>Çıkış Yap</span>
+                    <span onClick={handleLogout}>Exit</span>
                   </a>
                 </li>
               </ul>
@@ -90,7 +90,7 @@ function Header() {
                   className="header-nav-item"
                 >
                   <Link to="/" className="nav-link">
-                    <span>Anasayfa</span>
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
@@ -103,7 +103,7 @@ function Header() {
                         justifyContent: "center",
                       }}
                     >
-                      <span style={{ marginRight: "5px" }}>Admin Paneli</span>
+                      <span style={{ marginRight: "5px" }}>Admin Panel</span>
                       <img
                         style={{
                           paddingBottom: "3px",
@@ -119,7 +119,7 @@ function Header() {
                     style={{ cursor: "pointer", marginTop: "6px" }}
                     className="nav-link"
                   >
-                    <span onClick={handleLogout}>Çıkış Yap</span>
+                    <span onClick={handleLogout}>Exit</span>
                   </a>
                 </li>
               </>
@@ -139,7 +139,7 @@ function Header() {
                   className="header-nav-item"
                 >
                   <Link to="/" className="nav-link">
-                    <span>Anasayfa</span>
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li className="header-nav-item">
@@ -152,7 +152,7 @@ function Header() {
                         marginTop: "5px",
                       }}
                     >
-                      <span>Öğretmen Paneli</span>
+                      <span>Teacher Panel</span>
                     </div>
                   </Link>
                 </li>
@@ -161,7 +161,7 @@ function Header() {
                     style={{ cursor: "pointer", marginTop: "5px" }}
                     className="nav-link"
                   >
-                    <span onClick={handleLogout}>Çıkış Yap</span>
+                    <span onClick={handleLogout}>Exit</span>
                   </a>
                 </li>
               </>
