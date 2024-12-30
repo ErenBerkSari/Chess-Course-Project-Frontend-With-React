@@ -10,6 +10,8 @@ import {
 } from "../../redux/slices/userSlice";
 import ClipLoader from "../ClipLoader";
 import printer from "../../assets/Auth/images/logos/printer.png";
+import { format } from "date-fns";
+
 function Profile() {
   const { userId } = useParams();
   const { user, progresses, isLoading, profileImage } = useSelector(
