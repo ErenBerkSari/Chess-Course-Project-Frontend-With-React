@@ -78,7 +78,7 @@ function LessonDetail() {
           <div className="row">
             <div className="col-lg-8 col-12 m-auto">
               <h3 className="mb-4">{lesson.lessonName}</h3>
-              <p>{lesson.lessonDesc}</p>
+              <p style={{ textAlign: "justify" }}>{lesson.lessonDesc}</p>
 
               {/* Dinamik İçerik */}
               {lesson.lessonContent.sections.map((section, index) => {
