@@ -36,11 +36,13 @@ function Register() {
       if (register.fulfilled.match(result)) {
         navigate("/userGuide");
       } else {
-        alert(result.payload || "Kayıt başarısız. Lütfen tekrar deneyin.");
+        alert(result.payload || "Registration failed. Please try again.");
       }
     } catch (error) {
       console.error("Kayıt işlemi sırasında hata: ", error);
-      alert("Kayıt işlemi sırasında bir hata oluştu. Lütfen tekrar deneyiniz.");
+      alert(
+        "An error occurred during the registration process. Please try again."
+      );
     }
   };
 
@@ -53,7 +55,7 @@ function Register() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -100,7 +102,7 @@ function Register() {
                   <form>
                     <div className="mb-2">
                       <label htmlFor="exampleInputtext1" className="form-label">
-                        Kullanıcı Adı
+                        Username
                       </label>
                       <input
                         type="text"
@@ -130,7 +132,7 @@ function Register() {
                         htmlFor="exampleInputPassword1"
                         className="form-label"
                       >
-                        Şifre
+                        Password
                       </label>
                       <input
                         type="password"
@@ -142,7 +144,7 @@ function Register() {
                     </div>
                     <div className="mb-2">
                       <label htmlFor="exampleInputRole1" className="form-label">
-                        Kullanıcı Rolü
+                        User Role
                       </label>
                       <select
                         className="form-control"
@@ -150,8 +152,8 @@ function Register() {
                         value={registerRole}
                         onChange={(e) => setRegisterRole(e.target.value)}
                       >
-                        <option value="student">Öğrenci</option>
-                        <option value="teacher">Öğretmen</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
                       </select>
                     </div>
                     <button
@@ -162,13 +164,13 @@ function Register() {
                     </button>
                     <div className="d-flex align-items-center justify-content-center">
                       <p className="fs-5 mb-0 fw-bold">
-                        Zaten bir hesabınız var mı?
+                        Do you already have an account?
                       </p>
                       <Link
                         to={"/auth/login"}
                         className="text-primary fw-bold ms-2"
                       >
-                        Giriş Yap
+                        Login
                       </Link>
                     </div>
                   </form>
