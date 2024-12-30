@@ -40,7 +40,15 @@ function Header() {
         </Link>
 
         <div className="collapse navbar-collapse" id="ftco-nav">
-          <ul className="navbar-nav nav ml-auto">
+          <ul
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "end",
+              marginRight: "30px",
+            }}
+            className="navbar-nav nav ml-auto"
+          >
             {user.role == "student" ? (
               <ul className="navbar-nav nav ml-auto">
                 <li className="header-nav-item">
