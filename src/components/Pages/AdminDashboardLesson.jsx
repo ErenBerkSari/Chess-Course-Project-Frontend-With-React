@@ -60,7 +60,7 @@ const AdminDashboardLesson = () => {
       };
 
       await dispatch(createLesson(lessonData));
-      message.success("Ders başarıyla oluşturuldu!");
+      message.success("The lesson was successfully created!");
       form.resetFields();
       setLessonContent([{ type: "text", content: "" }]);
       setLessonTests([
@@ -72,7 +72,7 @@ const AdminDashboardLesson = () => {
         },
       ]);
     } catch (error) {
-      message.error("Ders oluşturulurken bir hata oluştu.");
+      message.error("An error occurred while creating the lesson.");
     }
   };
 
@@ -139,15 +139,15 @@ const AdminDashboardLesson = () => {
   );
 
   const handleDelete = async (lessonId) => {
-    if (window.confirm("Bu dersi silmek istediğinizden emin misiniz?")) {
+    if (window.confirm("Are you sure you want to delete this lesson?")) {
       try {
         const result = await dispatch(deleteLesson(lessonId)).unwrap();
 
         // Optional: Show a success toast
-        toast.success("Ders başarıyla silindi");
+        toast.success("The lesson was successfully deleted!");
       } catch (error) {
         // Optional: Show an error toast
-        toast.error("Ders silinirken bir hata oluştu");
+        toast.error("An error occurred while deleting the lesson.");
         console.error("Delete lesson error:", error);
       }
     }
@@ -162,7 +162,7 @@ const AdminDashboardLesson = () => {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -176,7 +176,7 @@ const AdminDashboardLesson = () => {
               <div className="row">
                 <div className="col-sm-6">
                   <h2>
-                    Ders <b>Detayları</b>
+                    Lesson <b>Details</b>
                   </h2>
                 </div>
                 <div className="col-sm-6">
@@ -202,11 +202,11 @@ const AdminDashboardLesson = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th style={{ width: "22%" }}>Ders Adı</th>
-                  <th style={{ width: "22%" }}>Açıklama</th>
-                  <th>Tarih</th>
-                  <th>Seviye</th>
-                  <th>İşlemler</th>
+                  <th style={{ width: "22%" }}>Lesson Name</th>
+                  <th style={{ width: "22%" }}>Description</th>
+                  <th>Date</th>
+                  <th>Level</th>
+                  <th>Processes</th>
                 </tr>
               </thead>
               <tbody>
@@ -249,44 +249,46 @@ const AdminDashboardLesson = () => {
         </div>
         <hr />
         <Card
-          title="Yeni Ders Oluştur"
+          title="Create New Lesson"
           style={{ maxWidth: 800, margin: "0 auto" }}
         >
           <Form form={form} layout="vertical" onFinish={handleSubmit}>
             {/* Basic Lesson Information */}
             <Form.Item
               name="lessonName"
-              label="Ders Adı"
-              rules={[{ required: true, message: "Ders adı zorunludur" }]}
+              label="Lesson Name"
+              rules={[
+                { required: true, message: "The lesson name is required." },
+              ]}
             >
-              <Input placeholder="Örn: Piyonun Hareketleri" />
+              <Input placeholder="Example: Movement of the Pawn" />
             </Form.Item>
 
-            <Form.Item name="lessonDesc" label="Ders Açıklaması">
+            <Form.Item name="lessonDesc" label="Lesson Description">
               <TextArea
                 rows={4}
-                placeholder="Dersin detaylı açıklamasını yazın"
+                placeholder="Write a detailed description of the lesson."
               />
             </Form.Item>
 
-            <Form.Item name="lessonImage" label="Ders Görseli URL">
-              <Input placeholder="Görsel URL'sini girin" />
+            <Form.Item name="lessonImage" label="Lesson Image URL">
+              <Input placeholder="Enter the image URL" />
             </Form.Item>
 
             <Form.Item
               name="lessonLevel"
-              label="Ders Seviyesi"
-              rules={[{ required: true, message: "Ders seviyesi seçiniz" }]}
+              label="Lesson Level"
+              rules={[{ required: true, message: "Select lesson level" }]}
             >
-              <Select placeholder="Seviye seçin">
-                <Select.Option value="Beginner">Başlangıç</Select.Option>
-                <Select.Option value="Middle">Orta</Select.Option>
-                <Select.Option value="Advanced">İleri</Select.Option>
+              <Select placeholder="Select level">
+                <Select.Option value="Beginner">Beginner</Select.Option>
+                <Select.Option value="Middle">Intermediate</Select.Option>
+                <Select.Option value="Advanced">Advanced</Select.Option>
               </Select>
             </Form.Item>
 
             {/* Lesson Content Sections */}
-            <Title level={4}>Ders İçeriği</Title>
+            <Title level={4}>Lesson Content</Title>
             {lessonContent.map((section, index) => (
               <Card
                 key={index}
@@ -298,21 +300,21 @@ const AdminDashboardLesson = () => {
                     icon={<DeleteOutlined />}
                     onClick={() => removeLessonContentSection(index)}
                   >
-                    Sil
+                    Delete
                   </Button>
                 }
               >
-                <Form.Item label="İçerik Tipi">
+                <Form.Item label="Content Type">
                   <Select
                     value={section.type}
                     onChange={(value) =>
                       updateLessonContentSection(index, "type", value)
                     }
                   >
-                    <Select.Option value="text">Metin</Select.Option>
-                    <Select.Option value="image">Görsel</Select.Option>
+                    <Select.Option value="text">Text</Select.Option>
+                    <Select.Option value="image">Image</Select.Option>
                     <Select.Option value="image-text">
-                      Görsel + Metin
+                      Image + Text
                     </Select.Option>
                   </Select>
                 </Form.Item>
@@ -328,7 +330,7 @@ const AdminDashboardLesson = () => {
                           e.target.value
                         )
                       }
-                      placeholder="İçerik metnini girin"
+                      placeholder="Enter the content text"
                       rows={3}
                     />
                   </Form.Item>
@@ -336,13 +338,13 @@ const AdminDashboardLesson = () => {
 
                 {(section.type === "image" ||
                   section.type === "image-text") && (
-                  <Form.Item label="Görsel URL">
+                  <Form.Item label="Image URL">
                     <Input
                       value={section.url}
                       onChange={(e) =>
                         updateLessonContentSection(index, "url", e.target.value)
                       }
-                      placeholder="Görsel URL'sini girin"
+                      placeholder="Enter the image URL"
                     />
                   </Form.Item>
                 )}
@@ -355,11 +357,11 @@ const AdminDashboardLesson = () => {
               icon={<PlusOutlined />}
               style={{ marginBottom: 16 }}
             >
-              İçerik Bölümü Ekle
+              Add Content Section
             </Button>
 
             {/* Lesson Tests */}
-            <Title level={4}>Ders Testleri</Title>
+            <Title level={4}>Lesson Tests</Title>
             {lessonTests.map((test, index) => (
               <Card
                 key={index}
@@ -371,7 +373,7 @@ const AdminDashboardLesson = () => {
                     icon={<DeleteOutlined />}
                     onClick={() => removeLessonTest(index)}
                   >
-                    Sil
+                    Delete
                   </Button>
                 }
               >
@@ -380,37 +382,37 @@ const AdminDashboardLesson = () => {
                     value={test.type}
                     onChange={(value) => updateLessonTest(index, "type", value)}
                   >
-                    <Select.Option value="text">Metin</Select.Option>
-                    <Select.Option value="image">Görsel</Select.Option>
+                    <Select.Option value="text">Text</Select.Option>
+                    <Select.Option value="image">Image</Select.Option>
                     <Select.Option value="image-text">
-                      Görsel + Metin
+                      Image + Text
                     </Select.Option>
                   </Select>
                 </Form.Item>
 
-                <Form.Item label="Soru">
+                <Form.Item label="Question">
                   <Input
                     value={test.question}
                     onChange={(e) =>
                       updateLessonTest(index, "question", e.target.value)
                     }
-                    placeholder="Soruyu girin"
+                    placeholder="Enter the question"
                   />
                 </Form.Item>
 
                 {(test.type === "image" || test.type === "image-text") && (
-                  <Form.Item label="Görsel URL">
+                  <Form.Item label="Image URL">
                     <Input
                       value={test.url}
                       onChange={(e) =>
                         updateLessonTest(index, "url", e.target.value)
                       }
-                      placeholder="Görsel URL'sini girin"
+                      placeholder="Enter image URL"
                     />
                   </Form.Item>
                 )}
 
-                <Form.Item label="Seçenekler">
+                <Form.Item label="Options">
                   {test.options.map((option, optionIndex) => (
                     <Input
                       key={optionIndex}
@@ -420,19 +422,19 @@ const AdminDashboardLesson = () => {
                         newOptions[optionIndex] = e.target.value;
                         updateLessonTest(index, "options", newOptions);
                       }}
-                      placeholder={`Seçenek ${optionIndex + 1}`}
+                      placeholder={`Option ${optionIndex + 1}`}
                       style={{ marginBottom: 8 }}
                     />
                   ))}
                 </Form.Item>
 
-                <Form.Item label="Doğru Cevap">
+                <Form.Item label="Correct Answer">
                   <Select
                     value={test.correctAnswer}
                     onChange={(value) =>
                       updateLessonTest(index, "correctAnswer", value)
                     }
-                    placeholder="Doğru cevabı seçin"
+                    placeholder="Select the correct answer"
                   >
                     {test.options.map((option, optionIndex) => (
                       <Select.Option key={optionIndex} value={option}>
@@ -450,13 +452,13 @@ const AdminDashboardLesson = () => {
               icon={<PlusOutlined />}
               style={{ marginBottom: 16 }}
             >
-              Test Sorusu Ekle
+              Add Test Question
             </Button>
 
             {/* Submit Button */}
             <Form.Item>
               <Button type="primary" htmlType="submit" block>
-                Dersi Oluştur
+                Create the lesson
               </Button>
             </Form.Item>
           </Form>

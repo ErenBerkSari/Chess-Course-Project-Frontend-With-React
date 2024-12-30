@@ -15,7 +15,7 @@ function AdminDashboard() {
         <Link className="link-admin" to="user">
           <div id="box1" className="admin-box"></div>
         </Link>
-        <div style={{ fontSize: "20px" }}>Kullanıcı İşlemleri</div>
+        <div style={{ fontSize: "20px" }}>User Operations</div>
       </div>
       <div
         style={{
@@ -28,7 +28,7 @@ function AdminDashboard() {
         <Link className="link-admin" to="lesson">
           <div id="box2" className="admin-box"></div>
         </Link>
-        <div style={{ fontSize: "20px" }}>Ders işlemleri</div>
+        <div style={{ fontSize: "20px" }}>Lesson Operations</div>
       </div>
     </div>
   );
