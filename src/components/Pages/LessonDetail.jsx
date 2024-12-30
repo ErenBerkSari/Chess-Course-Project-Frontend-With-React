@@ -84,10 +84,22 @@ function LessonDetail() {
               {lesson.lessonContent.sections.map((section, index) => {
                 switch (section.type) {
                   case "text":
-                    return <p key={index}>{section.content || section.text}</p>;
+                    return (
+                      <p style={{ textAlign: "justify" }} key={index}>
+                        {section.content || section.text}
+                      </p>
+                    );
                   case "image":
                     return (
-                      <div className="my-4" key={index}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        className="my-4"
+                        key={index}
+                      >
                         <img
                           src={section.url}
                           alt="Lesson Visual"
@@ -102,22 +114,31 @@ function LessonDetail() {
                     );
                   case "image-text":
                     return (
-                      <div className="my-4" key={index}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        className="my-4"
+                        key={index}
+                      >
                         <img
                           src={section.url}
                           alt="Lesson Image with Text"
                           style={{
-                            width: "750px",
-                            height: "750px",
-                            marginBottom: "10px",
+                            width: "700px",
+                            height: "500px",
                           }}
                         />
-                        <p>{section.text}</p>
+                        <p style={{ textAlign: "justify" }}>{section.text}</p>
                       </div>
                     );
                   default:
                     return (
-                      <p key={index}>Bilinmeyen içerik türü: {section.type}</p>
+                      <p style={{ textAlign: "justify" }} key={index}>
+                        Bilinmeyen içerik türü: {section.type}
+                      </p>
                     );
                 }
               })}
