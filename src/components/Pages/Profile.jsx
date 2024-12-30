@@ -126,6 +126,10 @@ function Profile() {
                   {[
                     { label: "Kullanıcı Adı", value: `${user.username}` },
                     { label: "Email", value: `${user.email}` },
+                    {
+                      label: "Kayıt Tarihi",
+                      value: format(new Date(user.createdAt), "dd/MM/yyyy"),
+                    },
                   ].map((item, index) => (
                     <div key={index}>
                       <div className="row">
