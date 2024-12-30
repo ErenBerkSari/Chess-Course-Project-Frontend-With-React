@@ -93,7 +93,7 @@ function LessonDetail() {
                           alt="Lesson Visual"
                           style={{
                             width: "750px",
-                            height: "750px",
+                            height: "500px",
                             marginBottom: "10px",
                           }}
                         />
