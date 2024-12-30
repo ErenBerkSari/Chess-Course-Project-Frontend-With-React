@@ -34,7 +34,7 @@ function Login() {
       }
     } catch (error) {
       console.error("Login işlemi sırasında hata: ", error);
-      alert("Login işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+      alert("An error occurred during the login process. Please try again.");
     }
   };
 
@@ -47,7 +47,7 @@ function Login() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -96,7 +96,7 @@ function Login() {
                         htmlFor="exampleInputPassword1"
                         className="form-label"
                       >
-                        Şifre
+                        Password
                       </label>
                       <input
                         type="password"
@@ -111,15 +111,17 @@ function Login() {
                       className="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
                       onClick={handleLogin}
                     >
-                      Giriş Yap
+                      Login
                     </button>
                     <div className="d-flex align-items-center justify-content-center">
-                      <p className="fs-4 mb-0 fw-bold">Hesabınız yok mu?</p>
+                      <p className="fs-4 mb-0 fw-bold">
+                        Don't you have an account?
+                      </p>
                       <Link
                         to={"/auth/register"}
                         className="text-primary fw-bold ms-2"
                       >
-                        Kaydol
+                        Sign up
                       </Link>
                     </div>
                   </form>
