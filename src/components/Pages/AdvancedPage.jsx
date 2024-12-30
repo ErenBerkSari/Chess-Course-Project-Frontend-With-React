@@ -22,7 +22,7 @@ function AdvancedPage() {
   }, [dispatch]);
 
   useEffect(() => {
-    // Tamamlanan derslerin ID'lerini topla
+    // Collect completed lesson IDs
     const checkCompletedLessons = async () => {
       const completedIds = await Promise.all(
         lessons.map(async (lesson) => {
@@ -31,7 +31,7 @@ function AdvancedPage() {
         })
       );
 
-      // Null olanları filtrele
+      // Filter out null values
       const validCompletedIds = completedIds.filter((id) => id !== null);
       setCompletedLessonIds(validCompletedIds);
     };
@@ -43,6 +43,7 @@ function AdvancedPage() {
       dispatch(clearLessonState());
     };
   }, [lessons, dispatch]);
+
   if (isLoading) {
     return (
       <div
@@ -52,10 +53,11 @@ function AdvancedPage() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
+
   return (
     <div className="container">
       <div className="row">
@@ -98,7 +100,7 @@ function AdvancedPage() {
                                 }}
                                 src={completed}
                                 width={100}
-                                alt="Tamamlandı!"
+                                alt="Completed!"
                               />
                             </span>
                           )}
