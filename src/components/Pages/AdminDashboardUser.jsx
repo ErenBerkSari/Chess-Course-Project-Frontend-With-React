@@ -25,26 +25,26 @@ function AdminDashboardUser() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Arama fonksiyonu
+  // Search function
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
 
-  // Arama terimine göre filtreleme
+  // Filtering based on search term
   const filteredUsers = users.filter((user) =>
     user.username.toLowerCase().includes(searchTerm)
   );
 
   const handleDelete = async (userId) => {
-    if (window.confirm("Bu kullanıcıyı silmek istediğinizden emin misiniz?")) {
+    if (window.confirm("Are you sure you want to delete this user?")) {
       try {
         const result = await dispatch(deleteUser(userId)).unwrap();
 
         // Optional: Show a success toast
-        toast.success("Kullanıcı başarıyla silindi");
+        toast.success("User successfully deleted");
       } catch (error) {
         // Optional: Show an error toast
-        toast.error("Kullanıcı silinirken bir hata oluştu");
+        toast.error("An error occurred while deleting the user");
         console.error("Delete user error:", error);
       }
     }
@@ -59,7 +59,7 @@ function AdminDashboardUser() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -73,7 +73,7 @@ function AdminDashboardUser() {
               <div className="row">
                 <div className="col-sm-6">
                   <h2>
-                    Kullanıcı <b>Detayları</b>
+                    User <b>Details</b>
                   </h2>
                 </div>
                 <div className="col-sm-6">
@@ -83,7 +83,7 @@ function AdminDashboardUser() {
                         type="text"
                         id="search"
                         className="form-control"
-                        placeholder="Kullanıcı adı.."
+                        placeholder="Username..."
                         onChange={handleSearch}
                         value={searchTerm}
                       />
@@ -99,11 +99,11 @@ function AdminDashboardUser() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th style={{ width: "22%" }}>Kullanıcı Adı</th>
+                  <th style={{ width: "22%" }}>Username</th>
                   <th style={{ width: "22%" }}>Email</th>
-                  <th>Kayıt Tarihi</th>
-                  <th>Seviye</th>
-                  <th>Rol</th>
+                  <th>Registration Date</th>
+                  <th>Level</th>
+                  <th>Role</th>
                 </tr>
               </thead>
               <tbody>
@@ -131,7 +131,7 @@ function AdminDashboardUser() {
                         href="#"
                         className="delete"
                         title="Delete"
-                        onClick={() => handleDelete(user._id)} // Silme fonksiyonu
+                        onClick={() => handleDelete(user._id)} // Delete function
                       >
                         <i className="material-icons">&#xE872;</i>
                       </a>
