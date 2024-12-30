@@ -126,7 +126,6 @@ function Profile() {
                   {[
                     { label: "Kullanıcı Adı", value: `${user.username}` },
                     { label: "Email", value: `${user.email}` },
-                    { label: "Seviye", value: `${user.userLevel}` },
                   ].map((item, index) => (
                     <div key={index}>
                       <div className="row">
