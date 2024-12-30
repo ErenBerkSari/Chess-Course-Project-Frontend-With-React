@@ -100,14 +100,14 @@ function Home() {
                 }}
                 className="text-white text-center"
               >
-                Öğren, Oyna, Eğlen
+                Learn, Play, Have Fun
               </h1>
 
               <h6
                 style={{ fontStyle: "italic", fontWeight: "bold", color: "" }}
                 className="text-center"
               >
-                satranç dünyasına adım atmak isteyenler için
+                for those who want to step into the world of chess{" "}
               </h6>
 
               <div
@@ -131,7 +131,7 @@ function Home() {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Ders, Makale Ara..."
+                      label="Search Lesson, Article..."
                       variant="outlined"
                       fullWidth
                     />
@@ -162,7 +162,7 @@ function Home() {
       >
         <div className="container">
           <div className="col-12 text-center">
-            <h2 className="mb-4">Dersler</h2>
+            <h2 className="mb-4">Lessons</h2>
           </div>
         </div>
 
@@ -183,10 +183,11 @@ function Home() {
                         <Link to="/beginner-lessons">
                           <div className="d-flex">
                             <div>
-                              <h5 className="mb-2">Başlangıç Seviye</h5>
+                              <h5 className="mb-2">Beginner</h5>
 
                               <p className="mb-0">
-                                Taşların hareketi ve diğer temel bilgiler
+                                Movement of the pieces and other basic
+                                information{" "}
                               </p>
                             </div>
 
@@ -209,10 +210,10 @@ function Home() {
                         <Link to="/middle-lessons">
                           <div className="d-flex">
                             <div>
-                              <h5 className="mb-2">Orta Seviye</h5>
+                              <h5 className="mb-2">Intermediate</h5>
 
                               <p className="mb-0">
-                                Açılışlar, tuzaklar ve oyun ortası stratejileri
+                                Openings, traps, and middlegame strategies
                               </p>
                             </div>
 
@@ -235,11 +236,11 @@ function Home() {
                         <Link to="/advanced-lessons">
                           <div className="d-flex">
                             <div>
-                              <h5 className="mb-2">İleri Seviye</h5>
+                              <h5 className="mb-2">Advanced</h5>
 
                               <p className="mb-0">
-                                Oyun sonu stratejileri, matl türleri ve daha
-                                fazlası
+                                Endgame strategies, types of checkmates, and
+                                more
                               </p>
                             </div>
 
@@ -274,7 +275,7 @@ function Home() {
       >
         <div className="container">
           <div className="col-12 text-center">
-            <h2 className="mb-4">Makaleler</h2>
+            <h2 className="mb-4">Articles</h2>
           </div>
         </div>
 
@@ -336,7 +337,7 @@ function Home() {
                   }}
                 >
                   <button onClick={handleNavigation} className="more-btn">
-                    Daha Fazla..
+                    and more..
                   </button>
                 </div>
               </div>
@@ -355,7 +356,7 @@ function Home() {
               <div className="row">
                 <div className="col-sm-6">
                   <h2>
-                    Liderlik <b>Tablosu</b>
+                    Leader <b>Board</b>
                   </h2>
                 </div>
                 <div className="col-sm-6"></div>
@@ -365,10 +366,10 @@ function Home() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th style={{ width: "22%" }}>Kullanıcı Adı</th>
-                  <th style={{ width: "22%" }}>Kayıt Tarihi</th>
-                  <th style={{ width: "22%" }}>Seviye</th>
-                  <th style={{ width: "22%" }}>Genel İlerleme</th>
+                  <th style={{ width: "22%" }}>Username</th>
+                  <th style={{ width: "22%" }}>Registration Date</th>
+                  <th style={{ width: "22%" }}>Level</th>
+                  <th style={{ width: "22%" }}>Overall Progress</th>
                 </tr>
               </thead>
               <tbody>
