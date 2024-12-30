@@ -34,7 +34,7 @@ function Header() {
       className="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
       id="ftco-navbar"
     >
-      <div className="header-container">
+      <div style={{ width: "100%" }} className="header-container">
         <Link to="/" className="header-navbar-brand">
           <span>C</span>hess101
         </Link>
@@ -46,6 +46,7 @@ function Header() {
               alignItems: "center",
               justifyContent: "end",
               marginRight: "30px",
+              width: "100%",
             }}
             className="navbar-nav nav ml-auto"
           >
