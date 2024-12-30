@@ -16,7 +16,7 @@ function ArticleDetail() {
     }
     return () => {
       dispatch(clearArticleState());
-      console.log("Makale durumu temizlendi");
+      console.log("Article state cleared");
     };
   }, [dispatch, articleId]);
 
@@ -29,13 +29,13 @@ function ArticleDetail() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
 
   if (!article || !article.articleContent?.sections) {
-    return <div>Makale bulunamadı</div>; // Veri eksikse
+    return <div>Article not found</div>; // If data is missing
   }
   console.log(article);
   return (
@@ -76,7 +76,7 @@ function ArticleDetail() {
               <h3 className="mb-4">{article.articleName}</h3>
               <p>{article.articleDesc}</p>
 
-              {/* Dinamik İçerik */}
+              {/* Dynamic Content */}
               {article.articleContent.sections.map((section, index) => {
                 switch (section.type) {
                   case "text":
@@ -113,7 +113,7 @@ function ArticleDetail() {
                     );
                   default:
                     return (
-                      <p key={index}>Bilinmeyen içerik türü: {section.type}</p>
+                      <p key={index}>Unknown content type: {section.type}</p>
                     );
                 }
               })}
