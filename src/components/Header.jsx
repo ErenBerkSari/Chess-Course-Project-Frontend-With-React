@@ -35,7 +35,11 @@ function Header() {
       id="ftco-navbar"
     >
       <div style={{ width: "100%" }} className="header-container">
-        <Link to="/" className="header-navbar-brand">
+        <Link
+          style={{ marginLeft: "55px" }}
+          to="/"
+          className="header-navbar-brand"
+        >
           <span>C</span>hess101
         </Link>
 
