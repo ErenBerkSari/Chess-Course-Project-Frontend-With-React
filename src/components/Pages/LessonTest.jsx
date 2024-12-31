@@ -56,17 +56,17 @@ function LessonTest() {
     if (correctPercentage >= 65) {
       dispatch(completeLesson(lessonId));
       alert(
-        `Tebrikler! Testi %${correctPercentage.toFixed(
+        `Congratulations! You passed the test with a ${correctPercentage.toFixed(
           2
-        )} doğruluk oranıyla geçtin!`
+        )}% accuracy!`
       );
       dispatch(updateUserProgress(user.userId));
       navigate("/beginner-lessons");
     } else {
       alert(
-        `Üzgünüm, testi geçemedin. Skorun %${correctPercentage.toFixed(
+        `Sorry, you didn't pass the test. Your score is ${correctPercentage.toFixed(
           2
-        )}. Geçmek için en az %65'e ihtiyacın var.`
+        )}%. You need at least 65% to pass.`
       );
     }
   };
@@ -92,17 +92,17 @@ function LessonTest() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
 
   if (!lesson.lessonTest || !lesson.lessonTest.length) {
-    return <div>Test verisi bulunamadı.</div>;
+    return <div>No test data found.</div>;
   }
 
   if (!lesson.lessonTest[currentQuestionIndex]) {
-    return <div>Geçerli soru bulunamadı.</div>;
+    return <div>No valid question found.</div>;
   }
 
   const currentQuestion = lesson.lessonTest[currentQuestionIndex];
@@ -110,7 +110,9 @@ function LessonTest() {
   return (
     <div>
       {isCompleted ? (
-        <div>Ders tamamlandı! İçeriği incelemeye devam edebilirsiniz.</div>
+        <div>
+          The lesson is completed! You can continue reviewing the content.
+        </div>
       ) : (
         <div className="quiz-container">
           <h2
@@ -158,11 +160,11 @@ function LessonTest() {
               onClick={handlePreviousQuestion}
               disabled={currentQuestionIndex === 0}
             >
-              Önceki Soru
+              Previous Question
             </button>
 
             <div>
-              Soru {currentQuestionIndex + 1} / {lesson.lessonTest.length}
+              Question {currentQuestionIndex + 1} / {lesson.lessonTest.length}
             </div>
 
             <button
@@ -170,7 +172,7 @@ function LessonTest() {
               onClick={handleNextQuestion}
               disabled={currentQuestionIndex === lesson.lessonTest.length - 1}
             >
-              Sonraki Soru
+              Next Question
             </button>
           </div>
           <div
@@ -186,7 +188,7 @@ function LessonTest() {
                 onClick={handleSubmit}
                 style={{ marginTop: "20px" }}
               >
-                Testi Bitir
+                Submit Test
               </button>
             )}
           </div>
