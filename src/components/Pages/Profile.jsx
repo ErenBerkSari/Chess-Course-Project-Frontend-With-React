@@ -60,7 +60,7 @@ function Profile() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -92,15 +92,15 @@ function Profile() {
                     className="rounded-circle img-fluid"
                     style={{ width: "240px", height: "240px" }}
                     onError={(e) => {
-                      console.error("Tam Hata Detayı:", e);
+                      console.error("Error Details:", e);
                       e.target.src =
-                        "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"; // Hata durumunda default resim
+                        "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"; // Default image on error
                     }}
                   />
                   <h5 className="my-3">{user.username}</h5>
                   <div>
                     <label htmlFor="file-upload" id="custom-file-upload">
-                      Profil Resmini Seç
+                      Select Profile Image
                     </label>
                     <input
                       id="file-upload"
@@ -115,7 +115,7 @@ function Profile() {
                         disabled={!selectedFile}
                         id="profile-updated"
                       >
-                        Güncelle
+                        Update
                       </button>
                     </div>
                   </div>
@@ -126,10 +126,10 @@ function Profile() {
               <div className="card mb-4">
                 <div className="card-body">
                   {[
-                    { label: "Kullanıcı Adı", value: `${user.username}` },
+                    { label: "Username", value: `${user.username}` },
                     { label: "Email", value: `${user.email}` },
                     {
-                      label: "Kayıt Tarihi",
+                      label: "Registration Date",
                       value: format(new Date(user.createdAt), "dd/MM/yyyy"),
                     },
                   ].map((item, index) => (
@@ -154,26 +154,26 @@ function Profile() {
                       <div className="card-body">
                         <p className="mb-4">
                           <span className="text-primary font-italic me-1">
-                            Kullanıcı İlerlemeleri
+                            User Progress
                           </span>
                         </p>
 
                         {[
                           {
-                            task: `Genel İlerleme`,
+                            task: `Overall Progress`,
                             progress: overallProgress,
                           },
 
                           {
-                            task: "Başlangıç Seviye Dersler",
+                            task: "Beginner Level Lessons",
                             progress: beginnerProgress,
                           },
                           {
-                            task: "Orta Seviye Dersler",
+                            task: "Intermediate Level Lessons",
                             progress: middleProgress,
                           },
                           {
-                            task: "İleri Seviye Dersler",
+                            task: "Advanced Level Lessons",
                             progress: advancedProgress,
                           },
                         ].map((item, i) => (
@@ -186,7 +186,7 @@ function Profile() {
                               {item.progress !== null &&
                               item.progress !== undefined
                                 ? `${item.progress.toFixed(2)}%`
-                                : "Bilinmiyor"}
+                                : "Unknown"}
                               )
                             </p>
                             <div
