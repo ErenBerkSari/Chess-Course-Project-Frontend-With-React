@@ -15,7 +15,7 @@ function MiddlePage() {
   const [completedLessonIds, setCompletedLessonIds] = useState([]);
 
   useEffect(() => {
-    dispatch(getLessonsToLevel("Intermediate"));
+    dispatch(getLessonsToLevel("Middle"));
     return () => {
       dispatch(clearLessonState());
     };
