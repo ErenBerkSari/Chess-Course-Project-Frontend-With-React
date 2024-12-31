@@ -15,7 +15,7 @@ function TeacherDashboard() {
         <Link className="link-teacher" to="article">
           <div id="boxv1" className="teacher-box"></div>
         </Link>
-        <div style={{ fontSize: "20px" }}>Makale Ekle</div>
+        <div style={{ fontSize: "20px" }}>Add Article</div>
       </div>
       <div
         style={{
@@ -28,7 +28,7 @@ function TeacherDashboard() {
         <Link className="link-teacher" to="lesson">
           <div id="boxv2" className="teacher-box"></div>
         </Link>
-        <div style={{ fontSize: "20px" }}>Ders Ekle</div>
+        <div style={{ fontSize: "20px" }}>Add Lesson</div>
       </div>
     </div>
   );
