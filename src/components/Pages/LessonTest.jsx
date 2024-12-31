@@ -160,7 +160,7 @@ function LessonTest() {
               onClick={handlePreviousQuestion}
               disabled={currentQuestionIndex === 0}
             >
-              Previous Question
+              Previous
             </button>
 
             <div>
@@ -172,7 +172,7 @@ function LessonTest() {
               onClick={handleNextQuestion}
               disabled={currentQuestionIndex === lesson.lessonTest.length - 1}
             >
-              Next Question
+              Next
             </button>
           </div>
           <div
