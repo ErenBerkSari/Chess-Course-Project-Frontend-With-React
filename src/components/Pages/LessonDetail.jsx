@@ -168,7 +168,10 @@ function LessonDetail() {
                       the test.
                     </div>
                     <Link to="lessonTest">
-                      <button style={{ marginTop: "10px" }} id="test-button">
+                      <button
+                        style={{ marginTop: "10px", paddingBottom: "50px" }}
+                        id="test-button"
+                      >
                         Start Test
                       </button>
                     </Link>
