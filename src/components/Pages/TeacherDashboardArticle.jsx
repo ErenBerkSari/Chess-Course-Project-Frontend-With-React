@@ -48,11 +48,11 @@ function TeacherDashboardArticle() {
       };
 
       await dispatch(createArticle(articleData));
-      message.success("Makale başarıyla oluşturuldu!");
+      message.success("Article created successfully!");
       form.resetFields();
       setArticleContent([{ type: "text", content: "" }]);
     } catch (error) {
-      message.error("Makale oluşturulurken bir hata oluştu.");
+      message.error("An error occurred while creating the article.");
     }
   };
 
@@ -77,35 +77,32 @@ function TeacherDashboardArticle() {
   return (
     <div>
       <Card
-        title="Yeni Makale Oluştur"
+        title="Create New Article"
         style={{ maxWidth: 800, margin: "0 auto" }}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {/* Basic Lesson Information */}
           <Form.Item
             name="articleName"
-            label="Makale Adı"
-            rules={[{ required: true, message: "Makale adı zorunludur" }]}
+            label="Article Name"
+            rules={[{ required: true, message: "Article name is required" }]}
           >
-            <Input
-              placeholder="Örn: Vladimir Kramnik Nasıl Süper Büyükusta Oldu
-"
-            />
+            <Input placeholder="e.g., How Vladimir Kramnik Became a Super Grandmaster" />
           </Form.Item>
 
-          <Form.Item name="articleDesc" label="Makale Açıklaması">
+          <Form.Item name="articleDesc" label="Article Description">
             <TextArea
               rows={4}
-              placeholder="Makalenin detaylı açıklamasını yazın"
+              placeholder="Write a detailed description of the article"
             />
           </Form.Item>
 
-          <Form.Item name="articleImage" label="Makale Görseli URL">
-            <Input placeholder="Görsel URL'sini girin" />
+          <Form.Item name="articleImage" label="Article Image URL">
+            <Input placeholder="Enter the image URL" />
           </Form.Item>
 
           {/* Lesson Content Sections */}
-          <Title level={4}>Makale İçeriği</Title>
+          <Title level={4}>Article Content</Title>
           {articleContent.map((section, index) => (
             <Card
               key={index}
@@ -117,11 +114,11 @@ function TeacherDashboardArticle() {
                   icon={<DeleteOutlined />}
                   onClick={() => removeArticleContentSection(index)}
                 >
-                  Sil
+                  Delete
                 </Button>
               }
             >
-              <Form.Item label="İçerik Tipi">
+              <Form.Item label="Content Type">
                 <Select
                   value={section.type}
                   onChange={(value) =>
@@ -135,7 +132,7 @@ function TeacherDashboardArticle() {
               </Form.Item>
 
               {(section.type === "text" || section.type === "image-text") && (
-                <Form.Item label="Metin İçeriği">
+                <Form.Item label="Text Content">
                   <TextArea
                     value={section.content}
                     onChange={(e) =>
@@ -145,20 +142,20 @@ function TeacherDashboardArticle() {
                         e.target.value
                       )
                     }
-                    placeholder="İçerik metnini girin"
+                    placeholder="Enter text content"
                     rows={3}
                   />
                 </Form.Item>
               )}
 
               {(section.type === "image" || section.type === "image-text") && (
-                <Form.Item label="Görsel URL">
+                <Form.Item label="Image URL">
                   <Input
                     value={section.url}
                     onChange={(e) =>
                       updateArticleContentSection(index, "url", e.target.value)
                     }
-                    placeholder="Görsel URL'sini girin"
+                    placeholder="Enter image URL"
                   />
                 </Form.Item>
               )}
@@ -171,13 +168,13 @@ function TeacherDashboardArticle() {
             icon={<PlusOutlined />}
             style={{ marginBottom: 16 }}
           >
-            İçerik Bölümü Ekle
+            Add Content Section
           </Button>
 
           {/* Submit Button */}
           <Form.Item>
             <Button type="primary" htmlType="submit" block>
-              Makaleyi Oluştur
+              Create Article
             </Button>
           </Form.Item>
         </Form>
