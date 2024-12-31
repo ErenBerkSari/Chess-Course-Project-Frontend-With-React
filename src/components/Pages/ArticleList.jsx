@@ -21,7 +21,7 @@ function ArticleList() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -34,7 +34,7 @@ function ArticleList() {
       >
         <div className="container">
           <div className="col-12 text-center">
-            <h2 className="mb-4">Makaleler</h2>
+            <h2 className="mb-4">Articles</h2>
           </div>
         </div>
 
