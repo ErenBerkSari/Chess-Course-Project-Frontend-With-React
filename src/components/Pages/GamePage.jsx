@@ -205,7 +205,7 @@ const GamePage = () => {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -232,24 +232,24 @@ const GamePage = () => {
               onClick={() => setDifficulty("easy")}
               className={difficulty === "easy" ? "selected" : ""}
             >
-              Kolay
+              Easy
             </button>
             <button
               onClick={() => setDifficulty("medium")}
               className={difficulty === "medium" ? "selected" : ""}
             >
-              Orta
+              Medium
             </button>
             <button
               onClick={() => setDifficulty("hard")}
               className={difficulty === "hard" ? "selected" : ""}
             >
-              Zor
+              Hard
             </button>
           </div>
           <div style={{ width: "100%" }}>
             <button onClick={resetGame} className="reset-game-button">
-              Yeni Oyun
+              New Game
             </button>
           </div>{" "}
           <p className="game-status">{getGameStatus()}</p>
@@ -306,7 +306,7 @@ const GamePage = () => {
                 fontStyle: "italic",
               }}
             >
-              Hamle Kayıtları
+              Move Log
             </div>
             <div>
               {moveLog.map((log, index) => (
