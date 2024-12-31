@@ -60,7 +60,7 @@ function TeacherDashboardLesson() {
       };
 
       await dispatch(createLesson(lessonData));
-      message.success("Ders başarıyla oluşturuldu!");
+      message.success("Lesson created successfully!");
       form.resetFields();
       setLessonContent([{ type: "text", content: "" }]);
       setLessonTests([
@@ -72,7 +72,7 @@ function TeacherDashboardLesson() {
         },
       ]);
     } catch (error) {
-      message.error("Ders oluşturulurken bir hata oluştu.");
+      message.error("An error occurred while creating the lesson.");
     }
   };
 
@@ -119,44 +119,46 @@ function TeacherDashboardLesson() {
   return (
     <div>
       <Card
-        title="Yeni Ders Oluştur"
+        title="Create New Lesson"
         style={{ maxWidth: 800, margin: "0 auto" }}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {/* Basic Lesson Information */}
           <Form.Item
             name="lessonName"
-            label="Ders Adı"
-            rules={[{ required: true, message: "Ders adı zorunludur" }]}
+            label="Lesson Name"
+            rules={[{ required: true, message: "Lesson name is required" }]}
           >
-            <Input placeholder="Örn: Piyonun Hareketleri" />
+            <Input placeholder="E.g., Pawn Moves" />
           </Form.Item>
 
-          <Form.Item name="lessonDesc" label="Ders Açıklaması">
+          <Form.Item name="lessonDesc" label="Lesson Description">
             <TextArea
               rows={4}
-              placeholder="Dersin detaylı açıklamasını yazın"
+              placeholder="Write a detailed description of the lesson"
             />
           </Form.Item>
 
-          <Form.Item name="lessonImage" label="Ders Görseli URL">
-            <Input placeholder="Görsel URL'sini girin" />
+          <Form.Item name="lessonImage" label="Lesson Image URL">
+            <Input placeholder="Enter image URL" />
           </Form.Item>
 
           <Form.Item
             name="lessonLevel"
-            label="Ders Seviyesi"
-            rules={[{ required: true, message: "Ders seviyesi seçiniz" }]}
+            label="Lesson Level"
+            rules={[
+              { required: true, message: "Please select a lesson level" },
+            ]}
           >
-            <Select placeholder="Seviye seçin">
-              <Select.Option value="Beginner">Başlangıç</Select.Option>
-              <Select.Option value="Middle">Orta</Select.Option>
-              <Select.Option value="Advanced">İleri</Select.Option>
+            <Select placeholder="Select a level">
+              <Select.Option value="Beginner">Beginner</Select.Option>
+              <Select.Option value="Middle">Intermediate</Select.Option>
+              <Select.Option value="Advanced">Advanced</Select.Option>
             </Select>
           </Form.Item>
 
           {/* Lesson Content Sections */}
-          <Title level={4}>Ders İçeriği</Title>
+          <Title level={4}>Lesson Content</Title>
           {lessonContent.map((section, index) => (
             <Card
               key={index}
@@ -168,27 +170,25 @@ function TeacherDashboardLesson() {
                   icon={<DeleteOutlined />}
                   onClick={() => removeLessonContentSection(index)}
                 >
-                  Sil
+                  Delete
                 </Button>
               }
             >
-              <Form.Item label="İçerik Tipi">
+              <Form.Item label="Content Type">
                 <Select
                   value={section.type}
                   onChange={(value) =>
                     updateLessonContentSection(index, "type", value)
                   }
                 >
-                  <Select.Option value="text">Metin</Select.Option>
-                  <Select.Option value="image">Görsel</Select.Option>
-                  <Select.Option value="image-text">
-                    Görsel + Metin
-                  </Select.Option>
+                  <Select.Option value="text">Text</Select.Option>
+                  <Select.Option value="image">Image</Select.Option>
+                  <Select.Option value="image-text">Image + Text</Select.Option>
                 </Select>
               </Form.Item>
 
               {(section.type === "text" || section.type === "image-text") && (
-                <Form.Item label="Metin İçeriği">
+                <Form.Item label="Text Content">
                   <TextArea
                     value={section.content}
                     onChange={(e) =>
@@ -198,20 +198,20 @@ function TeacherDashboardLesson() {
                         e.target.value
                       )
                     }
-                    placeholder="İçerik metnini girin"
+                    placeholder="Enter text content"
                     rows={3}
                   />
                 </Form.Item>
               )}
 
               {(section.type === "image" || section.type === "image-text") && (
-                <Form.Item label="Görsel URL">
+                <Form.Item label="Image URL">
                   <Input
                     value={section.url}
                     onChange={(e) =>
                       updateLessonContentSection(index, "url", e.target.value)
                     }
-                    placeholder="Görsel URL'sini girin"
+                    placeholder="Enter image URL"
                   />
                 </Form.Item>
               )}
@@ -224,11 +224,11 @@ function TeacherDashboardLesson() {
             icon={<PlusOutlined />}
             style={{ marginBottom: 16 }}
           >
-            İçerik Bölümü Ekle
+            Add Content Section
           </Button>
 
           {/* Lesson Tests */}
-          <Title level={4}>Ders Testleri</Title>
+          <Title level={4}>Lesson Tests</Title>
           {lessonTests.map((test, index) => (
             <Card
               key={index}
@@ -240,46 +240,44 @@ function TeacherDashboardLesson() {
                   icon={<DeleteOutlined />}
                   onClick={() => removeLessonTest(index)}
                 >
-                  Sil
+                  Delete
                 </Button>
               }
             >
-              <Form.Item label="Soru Tipi">
+              <Form.Item label="Question Type">
                 <Select
                   value={test.type}
                   onChange={(value) => updateLessonTest(index, "type", value)}
                 >
-                  <Select.Option value="text">Metin</Select.Option>
-                  <Select.Option value="image">Görsel</Select.Option>
-                  <Select.Option value="image-text">
-                    Görsel + Metin
-                  </Select.Option>
+                  <Select.Option value="text">Text</Select.Option>
+                  <Select.Option value="image">Image</Select.Option>
+                  <Select.Option value="image-text">Image + Text</Select.Option>
                 </Select>
               </Form.Item>
 
-              <Form.Item label="Soru">
+              <Form.Item label="Question">
                 <Input
                   value={test.question}
                   onChange={(e) =>
                     updateLessonTest(index, "question", e.target.value)
                   }
-                  placeholder="Soruyu girin"
+                  placeholder="Enter the question"
                 />
               </Form.Item>
 
               {(test.type === "image" || test.type === "image-text") && (
-                <Form.Item label="Görsel URL">
+                <Form.Item label="Image URL">
                   <Input
                     value={test.url}
                     onChange={(e) =>
                       updateLessonTest(index, "url", e.target.value)
                     }
-                    placeholder="Görsel URL'sini girin"
+                    placeholder="Enter image URL"
                   />
                 </Form.Item>
               )}
 
-              <Form.Item label="Seçenekler">
+              <Form.Item label="Options">
                 {test.options.map((option, optionIndex) => (
                   <Input
                     key={optionIndex}
@@ -289,19 +287,19 @@ function TeacherDashboardLesson() {
                       newOptions[optionIndex] = e.target.value;
                       updateLessonTest(index, "options", newOptions);
                     }}
-                    placeholder={`Seçenek ${optionIndex + 1}`}
+                    placeholder={`Option ${optionIndex + 1}`}
                     style={{ marginBottom: 8 }}
                   />
                 ))}
               </Form.Item>
 
-              <Form.Item label="Doğru Cevap">
+              <Form.Item label="Correct Answer">
                 <Select
                   value={test.correctAnswer}
                   onChange={(value) =>
                     updateLessonTest(index, "correctAnswer", value)
                   }
-                  placeholder="Doğru cevabı seçin"
+                  placeholder="Select the correct answer"
                 >
                   {test.options.map((option, optionIndex) => (
                     <Select.Option key={optionIndex} value={option}>
@@ -319,13 +317,13 @@ function TeacherDashboardLesson() {
             icon={<PlusOutlined />}
             style={{ marginBottom: 16 }}
           >
-            Test Sorusu Ekle
+            Add Test Question
           </Button>
 
           {/* Submit Button */}
           <Form.Item>
             <Button type="primary" htmlType="submit" block>
-              Dersi Oluştur
+              Create Lesson
             </Button>
           </Form.Item>
         </Form>
