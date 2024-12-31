@@ -33,7 +33,7 @@ function App() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }

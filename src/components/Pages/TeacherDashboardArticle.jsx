@@ -128,11 +128,9 @@ function TeacherDashboardArticle() {
                     updateArticleContentSection(index, "type", value)
                   }
                 >
-                  <Select.Option value="text">Metin</Select.Option>
-                  <Select.Option value="image">Görsel</Select.Option>
-                  <Select.Option value="image-text">
-                    Görsel + Metin
-                  </Select.Option>
+                  <Select.Option value="text">Text</Select.Option>
+                  <Select.Option value="image">Image</Select.Option>
+                  <Select.Option value="image-text">Image + Text</Select.Option>
                 </Select>
               </Form.Item>
 
