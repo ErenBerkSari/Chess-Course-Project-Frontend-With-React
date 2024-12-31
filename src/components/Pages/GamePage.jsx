@@ -227,7 +227,7 @@ const GamePage = () => {
         </div>
         <div className="chess-btn-group">
           <div className="difficulty-buttons">
-            <h3>Seviye Seçin</h3>
+            <h3>Select Level</h3>
             <button
               onClick={() => setDifficulty("easy")}
               className={difficulty === "easy" ? "selected" : ""}
@@ -263,7 +263,7 @@ const GamePage = () => {
             }}
           >
             <h2>
-              Oyuncu vs
+              Player vs
               <span
                 style={{
                   marginLeft: "7px",
