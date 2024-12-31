@@ -23,7 +23,7 @@ function LessonDetail() {
     }
     return () => {
       dispatch(clearLessonState());
-      console.log("Temizlendi");
+      console.log("Cleared");
     };
   }, [dispatch, lessonId]);
   if (isLoading || isCompleted == null) {
@@ -35,13 +35,13 @@ function LessonDetail() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
 
   if (!lesson || !lesson.lessonContent?.sections) {
-    return <div>Ders bulunamadı</div>; // Veri eksikse
+    return <div>Lesson not found</div>; // If data is missing
   }
 
   return (
@@ -80,7 +80,7 @@ function LessonDetail() {
               <h3 className="mb-4">{lesson.lessonName}</h3>
               <p style={{ textAlign: "justify" }}>{lesson.lessonDesc}</p>
 
-              {/* Dinamik İçerik */}
+              {/* Dynamic Content */}
               {lesson.lessonContent.sections.map((section, index) => {
                 switch (section.type) {
                   case "text":
@@ -137,7 +137,7 @@ function LessonDetail() {
                   default:
                     return (
                       <p style={{ textAlign: "justify" }} key={index}>
-                        Bilinmeyen içerik türü: {section.type}
+                        Unknown content type: {section.type}
                       </p>
                     );
                 }
@@ -152,7 +152,7 @@ function LessonDetail() {
               >
                 {isCompleted ? (
                   <div class="alert alert-success" role="alert">
-                    Ders tamamlandı! İçeriği incelemeye devam edebilirsiniz.
+                    Lesson completed! You can continue reviewing the content.
                   </div>
                 ) : (
                   <div
@@ -164,11 +164,12 @@ function LessonDetail() {
                     }}
                   >
                     <div>
-                      Bu dersi tamamladığını düşünüyorsan testi çözebilirsin
+                      If you think you have completed this lesson, you can take
+                      the test.
                     </div>
                     <Link to="lessonTest">
                       <button style={{ marginTop: "10px" }} id="test-button">
-                        Teste Geç
+                        Proceed to Test
                       </button>
                     </Link>
                   </div>
