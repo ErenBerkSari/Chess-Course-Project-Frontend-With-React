@@ -129,7 +129,7 @@ function Profile() {
                     { label: "Username", value: `${user.username}` },
                     { label: "Email", value: `${user.email}` },
                     {
-                      label: "Registration Date",
+                      label: "Registration",
                       value: format(new Date(user.createdAt), "dd/MM/yyyy"),
                     },
                   ].map((item, index) => (
