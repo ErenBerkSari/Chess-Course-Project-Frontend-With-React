@@ -28,7 +28,7 @@ function UserGuide() {
         }}
       >
         <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Yükleniyor, lütfen bekleyin...</div>
+        <div>Loading, please wait...</div>
       </div>
     );
   }
@@ -42,8 +42,8 @@ function UserGuide() {
         <div className="character">
           <div className="speech-bubble">
             <p className="character-text">
-              Merhaba aramıza hoşgeldin! Bu sayfada aklına takılan soruların
-              cevabını bulabilirsin.
+              Hello, welcome! You can find answers to any questions you may have
+              on this page.
             </p>
             <div
               style={{
@@ -53,7 +53,7 @@ function UserGuide() {
               }}
             >
               <button id="character-btn" onClick={handleClick}>
-                Kapat
+                Close
               </button>
             </div>
           </div>
@@ -70,7 +70,7 @@ function UserGuide() {
         <div className="container">
           <div className="row">
             <div className="col-12 text-center">
-              <h2 className="text-white mb-4">Nasıl Çalışır?</h2>
+              <h2 className="text-white mb-4">How Does It Work?</h2>
             </div>
 
             <div className="col-lg-10 col-12 mx-auto">
@@ -86,13 +86,13 @@ function UserGuide() {
 
                   <li>
                     <h4 className="text-white mb-3">
-                      Seviyelere Göre Dersleri Tamamlayın
+                      Complete Lessons by Levels
                     </h4>
 
                     <p className="text-white">
-                      Uygulamamızda başlangıç, orta ve ileri seviye dersler
-                      bulunmaktadır. Anasayfadan bu derslere erişebilir ve
-                      dersleri tamamlamaya başlayabilirsiniz.
+                      Our app offers beginner, intermediate, and advanced level
+                      lessons. You can access these lessons from the homepage
+                      and start completing them.
                     </p>
 
                     <div className="icon-holder">
@@ -108,13 +108,13 @@ function UserGuide() {
 
                   <li>
                     <h4 className="text-white mb-3">
-                      Bilgisayara Karşı Satranç Oynayın
+                      Play Chess Against the Computer
                     </h4>
 
                     <p className="text-white">
-                      Header bölümünde bulunan "Oyna" kısmına tıklıyarak oyun
-                      sayfasına erişebilirsiniz. Bu sayfada istediğiniz seviyede
-                      bilgisayara karşı satranç oynayabilirsiniz.
+                      You can access the game page by clicking the "Play"
+                      section in the header. On this page, you can play chess
+                      against the computer at any level you choose.
                     </p>
 
                     <div className="icon-holder">
@@ -130,12 +130,13 @@ function UserGuide() {
 
                   <li>
                     <h4 className="text-white mb-3">
-                      Makale, Oyuncu ve Dersleri Aratın, İlerlemenizi Takip Edin
+                      Search for Articles, Players, and Lessons, Track Your
+                      Progress
                     </h4>
 
                     <p className="text-white">
-                      Anasayfadan istediğiniz içeriğe aratarak ulaşabilirsiniz
-                      ve profil sekmesinden ilerlemenizi takip edebilirsiniz.
+                      You can search for any content from the homepage, and you
+                      can track your progress from the profile section.
                     </p>
 
                     <div className="icon-holder">
@@ -173,7 +174,7 @@ function UserGuide() {
                 }}
                 className="mb-4"
               >
-                Sıkça Sorulan Sorular
+                Frequently Asked Questions
               </h2>
             </div>
 
@@ -195,7 +196,7 @@ function UserGuide() {
                       aria-expanded="true"
                       aria-controls="collapseOne"
                     >
-                      Nasıl Satranç Oynayabilirim?
+                      How Can I Play Chess?
                     </button>
                   </h2>
 
@@ -206,8 +207,8 @@ function UserGuide() {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Header bölümünde bulunan "Oyna" linkine tıklayarak oyun
-                      sayfasına erişebilirsiniz.
+                      You can access the game page by clicking the "Play" link
+                      in the header section.
                     </div>
                   </div>
                 </div>
@@ -222,7 +223,7 @@ function UserGuide() {
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      Bir Konuyu Nasıl Bulurum?
+                      How Can I Find a Topic?
                     </button>
                   </h2>
 
@@ -233,8 +234,8 @@ function UserGuide() {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Anasayfada bulunan arama çubuğuna ilgi alanınıza uygun
-                      anahtar kelimeler yazarak konuları kolayca bulabilirsiniz.
+                      You can easily find topics by typing keywords related to
+                      your interests in the search bar on the homepage.
                     </div>
                   </div>
                 </div>
@@ -249,7 +250,7 @@ function UserGuide() {
                       aria-expanded="false"
                       aria-controls="collapseThree"
                     >
-                      Kullanım Ücretli Mi?
+                      Is There a Fee for Usage?
                     </button>
                   </h2>
 
@@ -260,8 +261,8 @@ function UserGuide() {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Hayır, uygulamamız tamamen ücretsizdir. Tüm içeriklere
-                      kolayca erişebilirsiniz.
+                      No, our app is completely free. You can access all content
+                      without any charges.
                     </div>
                   </div>
                 </div>
