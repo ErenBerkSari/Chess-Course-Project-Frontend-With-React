@@ -1,6 +1,6 @@
 import axios from "axios";
-import { store } from "./store";
-import { refreshAccessToken } from "./features/auth/authSlice";
+import { store } from "../redux/store";
+import { refreshAccessToken } from "../redux/slices/authSlice";
 
 const api = axios.create({
   baseURL: "https://chess-course-project-backend-with-node-js.onrender.com",
