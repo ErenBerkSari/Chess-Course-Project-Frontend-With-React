@@ -388,7 +388,7 @@ function Home() {
                     </td>
                     <td>{user.username}</td>
                     <td>{format(new Date(user.createdAt), "dd/MM/yyyy")}</td>
-                    <td>{user.userLessons.length}</td>
+                    <td>{user.lessons.length}</td>
                     <td>
                       {user.progressInUser?.overallProgress !== undefined &&
                       user.progressInUser?.overallProgress !== null
