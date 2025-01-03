@@ -368,7 +368,7 @@ function Home() {
                   <th>#</th>
                   <th style={{ width: "22%" }}>Username</th>
                   <th style={{ width: "22%" }}>Registration</th>
-                  <th style={{ width: "22%" }}>Level</th>
+                  <th style={{ width: "22%" }}>Complete Lessons</th>
                   <th style={{ width: "22%" }}>Progress</th>
                 </tr>
               </thead>
