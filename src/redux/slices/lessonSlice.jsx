@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../api/apiConfig";
+import api from "../../api/axios";
 
 export const createLesson = createAsyncThunk(
   "lessons/createLesson",

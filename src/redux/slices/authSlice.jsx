@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
-import api from "../../api/apiConfig";
+import api from "../../api/axios";
 import axios from "axios";
 
 export const login = createAsyncThunk(
