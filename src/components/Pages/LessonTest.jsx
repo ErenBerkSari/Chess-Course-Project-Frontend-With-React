@@ -21,7 +21,8 @@ function LessonTest() {
   const { user } = useSelector((state) => state.auth);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState({});
-  console.log(isCompleted);
+  const [randomQuestions, setRandomQuestions] = useState([]);
+
   const handleOptionChange = (option) => {
     setSelectedOptions((prevState) => ({
       ...prevState,
@@ -30,7 +31,7 @@ function LessonTest() {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < lesson.lessonTest.length - 1) {
+    if (currentQuestionIndex < randomQuestions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     }
   };
@@ -42,11 +43,11 @@ function LessonTest() {
   };
 
   const handleSubmit = () => {
-    const totalQuestions = lesson.lessonTest.length;
+    const totalQuestions = randomQuestions.length;
     let correctAnswersCount = 0;
 
     for (let i = 0; i < totalQuestions; i++) {
-      if (lesson.lessonTest[i].correctAnswer === selectedOptions[i]) {
+      if (randomQuestions[i].correctAnswer === selectedOptions[i]) {
         correctAnswersCount++;
       }
     }
@@ -82,7 +83,16 @@ function LessonTest() {
     };
   }, [dispatch, lessonId]);
 
-  // Simplified rendering logic
+  useEffect(() => {
+    if (lesson.lessonTest && lesson.lessonTest.length > 0) {
+      const shuffledQuestions = [...lesson.lessonTest].sort(
+        () => 0.5 - Math.random()
+      );
+      const selectedQuestions = shuffledQuestions.slice(0, 3);
+      setRandomQuestions(selectedQuestions);
+    }
+  }, [lesson.lessonTest]);
+
   if (isLoading || isCompleted === null) {
     return (
       <div
@@ -97,15 +107,11 @@ function LessonTest() {
     );
   }
 
-  if (!lesson.lessonTest || !lesson.lessonTest.length) {
+  if (!randomQuestions || randomQuestions.length === 0) {
     return <div>No test data found.</div>;
   }
 
-  if (!lesson.lessonTest[currentQuestionIndex]) {
-    return <div>No valid question found.</div>;
-  }
-
-  const currentQuestion = lesson.lessonTest[currentQuestionIndex];
+  const currentQuestion = randomQuestions[currentQuestionIndex];
 
   return (
     <div>
@@ -164,13 +170,13 @@ function LessonTest() {
             </button>
 
             <div>
-              Question {currentQuestionIndex + 1} / {lesson.lessonTest.length}
+              Question {currentQuestionIndex + 1} / {randomQuestions.length}
             </div>
 
             <button
               id="pn-button"
               onClick={handleNextQuestion}
-              disabled={currentQuestionIndex === lesson.lessonTest.length - 1}
+              disabled={currentQuestionIndex === randomQuestions.length - 1}
             >
               Next
             </button>
@@ -182,7 +188,7 @@ function LessonTest() {
               alignItems: "center",
             }}
           >
-            {currentQuestionIndex === lesson.lessonTest.length - 1 && (
+            {currentQuestionIndex === randomQuestions.length - 1 && (
               <button
                 className="submit-btn"
                 onClick={handleSubmit}
