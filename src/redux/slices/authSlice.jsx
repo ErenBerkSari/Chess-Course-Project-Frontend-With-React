@@ -107,45 +107,18 @@ export const checkAuth = createAsyncThunk(
   "auth/checkStatus",
   async (_, { rejectWithValue }) => {
     try {
-      // İlk olarak `checkStatus` endpoint'ine istek gönder
       const response = await api.get(
         "https://chess-course-project-backend-with-node-js.onrender.com/auth/status",
         {
           withCredentials: true,
         }
       );
-      return response.data; // Eğer başarılıysa, veriyi döndür
+      return response.data;
     } catch (error) {
-      // Eğer `checkStatus` başarısız olursa, refresh token endpoint'ine istek gönder
-      if (error.response && error.response.status === 401) {
-        try {
-          const refreshResponse = await api.post(
-            "https://chess-course-project-backend-with-node-js.onrender.com/auth/refresh",
-            {},
-            {
-              withCredentials: true,
-            }
-          );
-
-          // Refresh başarılıysa, yeniden `checkStatus` endpoint'ine istek gönder
-          const retryResponse = await api.get(
-            "https://chess-course-project-backend-with-node-js.onrender.com/auth/status",
-            {
-              withCredentials: true,
-            }
-          );
-          return retryResponse.data;
-        } catch (refreshError) {
-          // Refresh de başarısız olursa, kullanıcıyı oturum açmaya yönlendirin
-          return rejectWithValue("Authentication required");
-        }
-      }
-      // Diğer hatalar için
-      return rejectWithValue("An unexpected error occurred");
+      return rejectWithValue("Authentication required");
     }
   }
 );
-
 const authSlice = createSlice({
   name: "auth",
   initialState: {
