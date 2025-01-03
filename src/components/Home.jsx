@@ -366,9 +366,10 @@ function Home() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th style={{ width: "30%" }}>Username</th>
-                  <th style={{ width: "35%" }}>Registration</th>
-                  <th style={{ width: "35%" }}>Progress</th>
+                  <th style={{ width: "22%" }}>Username</th>
+                  <th style={{ width: "22%" }}>Registration</th>
+                  <th style={{ width: "22%" }}>Level</th>
+                  <th style={{ width: "22%" }}>Progress</th>
                 </tr>
               </thead>
               <tbody>
@@ -387,6 +388,7 @@ function Home() {
                     </td>
                     <td>{user.username}</td>
                     <td>{format(new Date(user.createdAt), "dd/MM/yyyy")}</td>
+                    <td>{user.userLevel}</td>
                     <td>
                       {user.progressInUser?.overallProgress !== undefined &&
                       user.progressInUser?.overallProgress !== null
