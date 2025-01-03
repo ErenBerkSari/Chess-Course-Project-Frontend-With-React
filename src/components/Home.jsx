@@ -367,8 +367,8 @@ function Home() {
                 <tr>
                   <th>#</th>
                   <th style={{ width: "30%" }}>Username</th>
-                  <th style={{ width: "30%" }}>Registration</th>
-                  <th style={{ width: "30%" }}>Progress</th>
+                  <th style={{ width: "35%" }}>Registration</th>
+                  <th style={{ width: "35%" }}>Progress</th>
                 </tr>
               </thead>
               <tbody>
