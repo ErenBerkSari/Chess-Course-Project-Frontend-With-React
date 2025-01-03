@@ -368,7 +368,7 @@ function Home() {
                   <th>#</th>
                   <th style={{ width: "22%" }}>Username</th>
                   <th style={{ width: "22%" }}>Registration</th>
-                  <th style={{ width: "22%" }}>Complete Lessons</th>
+                  <th style={{ width: "22%" }}>Level</th>
                   <th style={{ width: "22%" }}>Progress</th>
                 </tr>
               </thead>
@@ -388,7 +388,7 @@ function Home() {
                     </td>
                     <td>{user.username}</td>
                     <td>{format(new Date(user.createdAt), "dd/MM/yyyy")}</td>
-                    <td>{user.lessons.length}</td>
+                    <td>{user.userLevel}</td>
                     <td>
                       {user.progressInUser?.overallProgress !== undefined &&
                       user.progressInUser?.overallProgress !== null
