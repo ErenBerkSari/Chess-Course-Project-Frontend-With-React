@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../../api/axios";
+import api from "../../api/apiConfig";
 
 export const getUser = createAsyncThunk(
   "users/getUser",
@@ -17,8 +17,6 @@ export const getUser = createAsyncThunk(
     }
   }
 );
-
-
 
 export const getAllUser = createAsyncThunk(
   "users/getAllUser",
