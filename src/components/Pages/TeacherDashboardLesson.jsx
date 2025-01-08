@@ -249,7 +249,6 @@ function TeacherDashboardLesson() {
                   onChange={(value) => updateLessonTest(index, "type", value)}
                 >
                   <Select.Option value="text">Text</Select.Option>
-                  <Select.Option value="image">Image</Select.Option>
                 </Select>
               </Form.Item>
 
