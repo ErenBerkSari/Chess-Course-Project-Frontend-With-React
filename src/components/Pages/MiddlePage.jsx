@@ -75,6 +75,7 @@ function MiddlePage() {
                 {lessons.map((lesson) => (
                   <div
                     key={lesson._id}
+                    style={{ marginTop: "30px" }}
                     className="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0"
                   >
                     <div className="custom-block bg-white shadow-lg">
