@@ -48,7 +48,7 @@ function LessonDetail() {
     <div>
       <header
         style={{
-          height: "250px",
+          height: "max-content",
           padding: "75px",
         }}
         className="site-header d-flex flex-column justify-content-center align-items-center"
