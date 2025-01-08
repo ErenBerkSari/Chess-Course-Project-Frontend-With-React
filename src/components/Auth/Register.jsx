@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import darkLogo from "../../assets/Auth/images/logos/chess2.png";
 import { register } from "../../redux/slices/authSlice";
 import ClipLoader from "../ClipLoader";
+import "../../css/Register.css";
 
 function Register() {
   const [registerUsername, setRegisterUsername] = useState("");
