@@ -74,7 +74,7 @@ function BeginnerPage() {
               >
                 {lessons.map((lesson) => (
                   <div
-                    style={{ marginTop: "20px" }}
+                    style={{ marginTop: "30px" }}
                     key={lesson._id}
                     className="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0"
                   >
