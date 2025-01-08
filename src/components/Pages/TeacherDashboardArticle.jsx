@@ -127,7 +127,6 @@ function TeacherDashboardArticle() {
                 >
                   <Select.Option value="text">Text</Select.Option>
                   <Select.Option value="image">Image</Select.Option>
-                  <Select.Option value="image-text">Image + Text</Select.Option>
                 </Select>
               </Form.Item>
 
