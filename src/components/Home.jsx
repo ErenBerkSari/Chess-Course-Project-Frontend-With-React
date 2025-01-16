@@ -80,6 +80,7 @@ function Home() {
       </div>
     );
   }
+  console.log(users, "nerde bunlar");
   console.log(currentUser.userId, "mevcut kullanıcı");
   return (
     <div>
