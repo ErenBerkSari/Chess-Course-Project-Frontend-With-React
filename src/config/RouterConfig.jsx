@@ -94,6 +94,7 @@
 import React, { Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import ClipLoader from "../components/ClipLoader";
 
 // Dinamik bileşen yüklemeleri
 const Login = React.lazy(() => import("../components/Auth/Login"));
@@ -142,7 +143,7 @@ function RouterConfig() {
 
   return (
     <div>
-      <Suspense fallback={<div>Yükleniyor...</div>}>
+      <Suspense fallback={ClipLoader}>
         <Routes>
           {isLoggedIn ? (
             <>
