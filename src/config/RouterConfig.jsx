@@ -46,7 +46,15 @@ function RouterConfig() {
   const { isLoggedIn, user } = useSelector((state) => state.auth);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100%",
+      }}
+    >
       <Suspense
         fallback={<ClipLoader size={50} color={"#123abc"} loading={true} />}
       >
