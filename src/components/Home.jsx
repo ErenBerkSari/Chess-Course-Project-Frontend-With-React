@@ -37,11 +37,7 @@ function Home() {
     dispatch(getTopUser());
     dispatch(getAllLessons());
   }, [isRegistered, navigate, dispatch]);
-  useEffect(() => {
-    const timer = setTimeout(() => {}, 3000); // 3 saniye yüklenme
-    console.log(timer);
-    return () => clearTimeout(timer);
-  }, []);
+
   const handleNavigation = () => {
     navigate("/articles");
   };
