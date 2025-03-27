@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
+const Home = React.lazy(() => import("../components/Home"));
 import Home from "../components/Home";
 import GamePage from "../components/Pages/GamePage";
 import MyLesson from "../components/Pages/MyLesson";
