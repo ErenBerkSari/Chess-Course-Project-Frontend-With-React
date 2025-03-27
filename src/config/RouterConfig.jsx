@@ -41,23 +41,14 @@ const TeacherDashboardLesson = React.lazy(() =>
 import ArticleList from "../components/Pages/ArticleList";
 import ArticleDetail from "../components/Pages/ArticleDetail";
 import ClipLoader from "../components/ClipLoader";
+import CenteredLoader from "../components/CenteredLoader";
 
 function RouterConfig() {
   const { isLoggedIn, user } = useSelector((state) => state.auth);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        width: "100%",
-      }}
-    >
-      <Suspense
-        fallback={<ClipLoader size={50} color={"#123abc"} loading={true} />}
-      >
+    <div>
+      <Suspense fallback={<CenteredLoader />}>
         <Routes>
           {isLoggedIn ? (
             <>
