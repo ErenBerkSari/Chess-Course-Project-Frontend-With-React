@@ -40,19 +40,7 @@ function Login() {
   };
 
   if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          width: "100%",
-        }}
-      >
-        <CenteredLoader />
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div
