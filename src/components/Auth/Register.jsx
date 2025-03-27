@@ -12,16 +12,16 @@ function Register() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerRole, setRegisterRole] = useState("student");
-  const [isCSSLoaded, setIsCSSLoaded] = useState(false);
+  // const [isCSSLoaded, setIsCSSLoaded] = useState(false);
   const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    import("../../assets/Auth/css/styles.min.css").then(() => {
-      setIsCSSLoaded(true);
-    });
-  }, []);
+  // useEffect(() => {
+  //   import("../../assets/Auth/css/styles.min.css").then(() => {
+  //     setIsCSSLoaded(true);
+  //   });
+  // }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault(); // Sayfanın yenilenmesini engeller
@@ -48,7 +48,7 @@ function Register() {
     }
   };
 
-  if (isLoading || !isCSSLoaded) {
+  if (isLoading) {
     return <CenteredLoader />;
   }
   return (
