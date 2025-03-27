@@ -47,7 +47,9 @@ function RouterConfig() {
 
   return (
     <div>
-      <Suspense fallback={<ClipLoader />}>
+      <Suspense
+        fallback={<ClipLoader size={50} color={"#123abc"} loading={true} />}
+      >
         <Routes>
           {isLoggedIn ? (
             <>
