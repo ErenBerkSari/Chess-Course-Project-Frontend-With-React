@@ -8,6 +8,7 @@ import {
 } from "../../redux/slices/lessonSlice";
 import completed from "../../assets/Auth/images/logos/completed3.png";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader";
 
 function MyLesson() {
   const { lessons } = useSelector((store) => store.lesson);
@@ -46,17 +47,7 @@ function MyLesson() {
   }, [lessons, dispatch]);
 
   if (isLoading || lessons.length == 0) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div className="container">

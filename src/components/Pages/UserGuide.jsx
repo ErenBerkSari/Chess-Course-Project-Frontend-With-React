@@ -11,6 +11,7 @@ import "../../assets/Auth/js/bootstrap.bundle.min.js";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCharacterStatus } from "../../redux/slices/authSlice.jsx";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader.jsx";
 
 function UserGuide() {
   const { characterIsVisible, isLoading } = useSelector((state) => state.auth);
@@ -20,17 +21,7 @@ function UserGuide() {
     dispatch(resetCharacterStatus());
   };
   if (isLoading) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div

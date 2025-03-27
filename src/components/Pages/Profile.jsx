@@ -11,6 +11,7 @@ import {
 import ClipLoader from "../ClipLoader";
 import printer from "../../assets/Auth/images/logos/printer.png";
 import { format } from "date-fns";
+import CenteredLoader from "../CenteredLoader";
 
 function Profile() {
   const { userId } = useParams();
@@ -52,17 +53,7 @@ function Profile() {
   };
 
   if (isLoading || user === null || progresses == null) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div className="profile-container">

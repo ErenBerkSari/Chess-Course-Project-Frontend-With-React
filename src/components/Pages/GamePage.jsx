@@ -5,6 +5,7 @@ import pc from "../../assets/Auth/images/logos/pc.png";
 import think from "../../assets/Auth/images/logos/thinking.jpeg";
 import "../../css/GamePage.css";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader";
 
 const GamePage = () => {
   const [game, setGame] = useState(new Chess());
@@ -197,17 +198,7 @@ const GamePage = () => {
   }, []); // Boş bağımlılık dizisi ile component mount olduğunda çalışır
 
   if (isLoading) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div className="game-page">

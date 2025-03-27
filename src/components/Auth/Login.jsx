@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/slices/authSlice";
 import "../../css/Login.css";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader";
 
 function Login() {
   const navigate = useNavigate();
@@ -39,17 +40,7 @@ function Login() {
   };
 
   if (isLoading) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div

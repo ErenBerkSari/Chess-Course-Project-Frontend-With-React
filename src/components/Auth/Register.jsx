@@ -5,6 +5,7 @@ import darkLogo from "../../assets/Auth/images/logos/chess2.png";
 import { register } from "../../redux/slices/authSlice";
 import ClipLoader from "../ClipLoader";
 import "../../css/Register.css";
+import CenteredLoader from "../CenteredLoader";
 
 function Register() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -48,17 +49,7 @@ function Register() {
   };
 
   if (isLoading || !isCSSLoaded) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div

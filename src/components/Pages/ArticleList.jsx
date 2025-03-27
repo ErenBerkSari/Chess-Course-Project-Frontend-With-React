@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ClipLoader from "../ClipLoader";
 import { Link } from "react-router-dom";
 import { getAllArticles } from "../../redux/slices/articleSlice";
+import CenteredLoader from "../CenteredLoader";
 
 function ArticleList() {
   const { articles, isLoadingArticle } = useSelector((state) => state.article);
@@ -13,17 +14,7 @@ function ArticleList() {
   }, [dispatch]);
 
   if (isLoadingArticle) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   return (
     <div>

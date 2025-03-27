@@ -8,6 +8,7 @@ import {
 } from "../../redux/slices/lessonSlice";
 import { Link, useParams } from "react-router-dom";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader";
 
 function LessonDetail() {
   const { lessonId } = useParams();
@@ -27,17 +28,7 @@ function LessonDetail() {
     };
   }, [dispatch, lessonId]);
   if (isLoading || isCompleted == null) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
 
   if (!lesson || !lesson.lessonContent?.sections) {

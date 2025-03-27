@@ -5,6 +5,7 @@ import "../css/Header.css";
 import { logout } from "../redux/slices/authSlice";
 import ClipLoader from "./ClipLoader";
 import admin from "../assets/Auth/images/logos/admin2.png";
+import CenteredLoader from "./CenteredLoader";
 function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,17 +17,7 @@ function Header() {
     navigate("/auth/login");
   };
   if (user === null || isLoading) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   console.log("neci bu", user.role);
   return (

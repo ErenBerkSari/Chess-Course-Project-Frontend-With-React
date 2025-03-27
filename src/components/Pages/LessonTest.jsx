@@ -10,6 +10,7 @@ import {
 import "../../css/LessonTest.css";
 import { updateUserProgress } from "../../redux/slices/userSlice";
 import ClipLoader from "../ClipLoader";
+import CenteredLoader from "../CenteredLoader";
 
 function LessonTest() {
   const dispatch = useDispatch();
@@ -94,17 +95,7 @@ function LessonTest() {
   }, [lesson.lessonTest]);
 
   if (isLoading || isCompleted === null) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
 
   if (!randomQuestions || randomQuestions.length === 0) {

@@ -13,6 +13,7 @@ import { format } from "date-fns";
 import { getAllLessons } from "../redux/slices/lessonSlice";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import CenteredLoader from "./CenteredLoader";
 function Home() {
   const {
     isRegistered,
@@ -68,17 +69,7 @@ function Home() {
   };
   console.log(isRegistered, "register status");
   if (isLoading || isLoadingArticle || isLoadingHome || isLoadingHomeLesson) {
-    return (
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ClipLoader color="#4caf50" loading={true} size={50} />
-        <div>Loading, please wait...</div>
-      </div>
-    );
+    return <CenteredLoader />;
   }
   console.log(users, "nerde bunlar");
   console.log(currentUser.userId, "mevcut kullanıcı");
