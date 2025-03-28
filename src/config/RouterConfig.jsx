@@ -48,71 +48,108 @@ function RouterConfig() {
 
   return (
     <div>
-      <Suspense fallback={<CenteredLoader />}>
-        <Routes>
-          {isLoggedIn ? (
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/game" element={<GamePage />} />
-              <Route path="/myLessons" element={<MyLesson />} />
-              <Route path="/userGuide" element={<UserGuide />} />
-              <Route path="/articles" element={<ArticleList />} />
-              <Route path="/articles/:articleId" element={<ArticleDetail />} />
-              <Route path="/profile/:userId" element={<Profile />} />
-              <Route path="/beginner-lessons" element={<BeginnerPage />} />
-              <Route path="/middle-lessons" element={<MiddlePage />} />
-              <Route path="/advanced-lessons" element={<AdvancedPage />} />
-              <Route path="/lessons/:lessonId" element={<LessonDetail />} />
-              <Route
-                path="/lessons/:lessonId/lessonTest"
-                element={<LessonTest />}
-              />
+      <Routes>
+        {isLoggedIn ? (
+          <>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<CenteredLoader />}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/game"
+              element={
+                <Suspense fallback={<CenteredLoader />}>
+                  <GamePage />
+                </Suspense>
+              }
+            />
+            <Route path="/myLessons" element={<MyLesson />} />
+            <Route path="/userGuide" element={<UserGuide />} />
+            <Route path="/articles" element={<ArticleList />} />
+            <Route path="/articles/:articleId" element={<ArticleDetail />} />
+            <Route path="/profile/:userId" element={<Profile />} />
+            <Route path="/beginner-lessons" element={<BeginnerPage />} />
+            <Route path="/middle-lessons" element={<MiddlePage />} />
+            <Route path="/advanced-lessons" element={<AdvancedPage />} />
+            <Route path="/lessons/:lessonId" element={<LessonDetail />} />
+            <Route
+              path="/lessons/:lessonId/lessonTest"
+              element={<LessonTest />}
+            />
 
-              {user.role === "admin" ? (
-                <>
-                  <Route path="/dashboard" element={<AdminDashboard />} />
-                  <Route
-                    path="/dashboard/user"
-                    element={<AdminDashboardUser />}
-                  />
-                  <Route
-                    path="/dashboard/lesson"
-                    element={<AdminDashboardLesson />}
-                  />
-                </>
-              ) : user.role === "teacher" ? (
-                <>
-                  <Route
-                    path="/teacherDashboard"
-                    element={<TeacherDashboard />}
-                  />
-                  <Route
-                    path="/teacherDashboard/article"
-                    element={<TeacherDashboardArticle />}
-                  />
-                  <Route
-                    path="/teacherDashboard/lesson"
-                    element={<TeacherDashboardLesson />}
-                  />
-                </>
-              ) : (
-                // Student rolü için default route
-                <Route path="*" element={<Home />} />
-              )}
-            </>
-          ) : (
-            <>
-              <Route path="/auth/login" element={<Login />} />
-              <Route path="/auth/register" element={<Register />} />
-              <Route path="*" element={<Login />} />
-            </>
-          )}
-        </Routes>
-      </Suspense>
+            {user.role === "admin" ? (
+              <>
+                <Route
+                  path="/dashboard"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <AdminDashboard />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/dashboard/user"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <AdminDashboardUser />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/dashboard/lesson"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <AdminDashboardLesson />
+                    </Suspense>
+                  }
+                />
+              </>
+            ) : user.role === "teacher" ? (
+              <>
+                <Route
+                  path="/teacherDashboard"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <TeacherDashboard />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/teacherDashboard/article"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <TeacherDashboardArticle />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/teacherDashboard/lesson"
+                  element={
+                    <Suspense fallback={<CenteredLoader />}>
+                      <TeacherDashboardLesson />
+                    </Suspense>
+                  }
+                />
+              </>
+            ) : (
+              <Route path="*" element={<Home />} />
+            )}
+          </>
+        ) : (
+          <>
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="*" element={<Login />} />
+          </>
+        )}
+      </Routes>
     </div>
   );
 }
-
 export default RouterConfig;
 
 // function RouterConfig() {
