@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
-const Home = React.lazy(() => import("../components/Home"));
-// import Home from "../components/Home";
+import Home from "../components/Home";
 const GamePage = React.lazy(() => import("../components/Pages/GamePage"));
 import MyLesson from "../components/Pages/MyLesson";
 import UserGuide from "../components/Pages/UserGuide";
@@ -51,14 +50,7 @@ function RouterConfig() {
       <Routes>
         {isLoggedIn ? (
           <>
-            <Route
-              path="/"
-              element={
-                <Suspense fallback={<CenteredLoader />}>
-                  <Home />
-                </Suspense>
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="/game"
               element={
