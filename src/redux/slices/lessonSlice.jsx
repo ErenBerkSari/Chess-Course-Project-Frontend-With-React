@@ -5,13 +5,9 @@ export const createLesson = createAsyncThunk(
   "lessons/createLesson",
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/lessons",
-        credentials,
-        {
-          withCredentials: true, // Cookies ile çalışmak için gerekli
-        }
-      );
+      const response = await api.post("/lessons", credentials, {
+        withCredentials: true, // Cookies ile çalışmak için gerekli
+      });
 
       const { lessonName } = response.data;
       return `${lessonName} was created.`;
@@ -31,9 +27,7 @@ export const createLesson = createAsyncThunk(
 export const getAllLessons = createAsyncThunk(
   "lessons/getAllLessons",
   async () => {
-    const response = await api.get(
-      "https://chess-course-project-backend-with-node-js.onrender.com/lessons"
-    );
+    const response = await api.get("/lessons");
     return response.data;
   }
 );
@@ -42,9 +36,7 @@ export const getLesson = createAsyncThunk(
   "lessons/getLesson",
   async (lessonId, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/lessons/${lessonId}`
-      );
+      const response = await api.get(`/lessons/${lessonId}`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;
@@ -58,9 +50,7 @@ export const getLesson = createAsyncThunk(
 export const getLessonsToLevel = createAsyncThunk(
   "lessons/getLessonToLevel",
   async (lessonLevel) => {
-    const response = await api.get(
-      `https://chess-course-project-backend-with-node-js.onrender.com/lessons?lessonLevel=${lessonLevel}`
-    );
+    const response = await api.get(`/lessons?lessonLevel=${lessonLevel}`);
     return response.data;
   }
 );
@@ -69,9 +59,7 @@ export const completeLesson = createAsyncThunk(
   "lessons/completeLesson",
   async (lessonId, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/${lessonId}/complete`
-      );
+      const response = await api.post(`/users/${lessonId}/complete`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;
@@ -86,9 +74,7 @@ export const lessonIsCompleted = createAsyncThunk(
   "lessons/lessonIsCompleted",
   async (lessonId, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/${lessonId}/lessonIsComplete`
-      );
+      const response = await api.get(`/users/${lessonId}/lessonIsComplete`);
       return response.data.isCompleted;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -100,9 +86,7 @@ export const deleteLesson = createAsyncThunk(
   "users/deleteLesson",
   async (lessonId, { rejectWithValue }) => {
     try {
-      const response = await api.delete(
-        `https://chess-course-project-backend-with-node-js.onrender.com/lessons/${lessonId}`
-      );
+      const response = await api.delete(`/lessons/${lessonId}`);
       console.log("API Response:", response.data);
       return lessonId;
     } catch (error) {

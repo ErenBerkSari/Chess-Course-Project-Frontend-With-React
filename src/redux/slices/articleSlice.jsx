@@ -6,13 +6,9 @@ export const createArticle = createAsyncThunk(
   "articles/createArticle",
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/articles",
-        credentials,
-        {
-          withCredentials: true, // Cookies ile çalışmak için gerekli
-        }
-      );
+      const response = await api.post("/articles", credentials, {
+        withCredentials: true, // Cookies ile çalışmak için gerekli
+      });
 
       const { articleName } = response.data;
       return `${articleName} was created.`;
@@ -33,9 +29,7 @@ export const createArticle = createAsyncThunk(
 export const getAllArticles = createAsyncThunk(
   "articles/getAllArticles",
   async () => {
-    const response = await api.get(
-      "https://chess-course-project-backend-with-node-js.onrender.com/articles"
-    );
+    const response = await api.get("/articles");
     return response.data;
   }
 );
@@ -44,9 +38,7 @@ export const getArticle = createAsyncThunk(
   "articles/getarticle",
   async (articleId, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/articles/${articleId}`
-      );
+      const response = await api.get(`/articles/${articleId}`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;

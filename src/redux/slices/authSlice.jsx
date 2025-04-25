@@ -7,11 +7,9 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/auth/login",
-        credentials,
-        { withCredentials: true }
-      );
+      const response = await api.post("/auth/login", credentials, {
+        withCredentials: true,
+      });
       await new Promise((resolve) => setTimeout(resolve, 100));
 
       const { userId, email, role } = response.data;
@@ -38,11 +36,9 @@ export const register = createAsyncThunk(
   "auth/register",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/auth/register",
-        userData,
-        { withCredentials: true }
-      );
+      const response = await api.post("/auth/register", userData, {
+        withCredentials: true,
+      });
       await new Promise((resolve) => setTimeout(resolve, 100));
 
       const { userId, email, role } = response.data;
@@ -71,7 +67,7 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/auth/logout",
+        "/auth/logout",
         {},
         {
           withCredentials: true,
@@ -92,9 +88,7 @@ export const refreshAccessToken = createAsyncThunk(
   "auth/refreshAccessToken",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.post(
-        "https://chess-course-project-backend-with-node-js.onrender.com/auth/refresh"
-      ); // Refresh token'ı kullanarak erişim token'ı yenile
+      const response = await api.post("/auth/refresh"); // Refresh token'ı kullanarak erişim token'ı yenile
       const { accessToken } = response.data;
       return accessToken;
     } catch (error) {
@@ -107,12 +101,9 @@ export const checkAuth = createAsyncThunk(
   "auth/checkStatus",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        "https://chess-course-project-backend-with-node-js.onrender.com/auth/status",
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await api.get("/auth/status", {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return rejectWithValue("Authentication required");

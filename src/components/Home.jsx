@@ -336,64 +336,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <div className="container-lg">
-        <div
-          style={{ overflow: "hidden", marginBottom: "110px" }}
-          className="table-responsive"
-        >
-          <div className="table-wrapper">
-            <div className="table-title">
-              <div className="row">
-                <div className="col-sm-6">
-                  <h2>
-                    Leader <b>Board</b>
-                  </h2>
-                </div>
-                <div className="col-sm-6"></div>
-              </div>
-            </div>
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th style={{ width: "22%" }}>Username</th>
-                  <th style={{ width: "22%" }}>Registration</th>
-                  <th style={{ width: "22%" }}>Level</th>
-                  <th style={{ width: "22%" }}>Progress</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr key={user._id}>
-                    <td>
-                      <img
-                        src={
-                          user.profileImage
-                            ? `https://chess-course-project-backend-with-node-js.onrender.com${user.profileImage}`
-                            : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                        }
-                        width={25}
-                        style={{ borderRadius: "15px" }}
-                      />
-                    </td>
-                    <td>{user.username}</td>
-                    <td>{format(new Date(user.createdAt), "dd/MM/yyyy")}</td>
-                    <td>{user.userLevel}</td>
-                    <td>
-                      {user.progressInUser?.overallProgress !== undefined &&
-                      user.progressInUser?.overallProgress !== null
-                        ? user.progressInUser.overallProgress.toFixed(2)
-                        : "Veri yok"}
-                    </td>
-                    {/* İlerleme yüzdesi */}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

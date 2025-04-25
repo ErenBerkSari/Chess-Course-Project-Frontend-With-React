@@ -76,7 +76,7 @@ function Profile() {
                   <img
                     src={
                       profileImage
-                        ? `https://chess-course-project-backend-with-node-js.onrender.com${profileImage}`
+                        ? `${import.meta.env.VITE_API_BASE_URL}${profileImage}`
                         : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                     }
                     alt="avatar"

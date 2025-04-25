@@ -5,9 +5,7 @@ export const getUser = createAsyncThunk(
   "users/getUser",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/${userId}`
-      );
+      const response = await api.get(`/users/${userId}`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;
@@ -22,9 +20,7 @@ export const getAllUser = createAsyncThunk(
   "users/getAllUser",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users`
-      );
+      const response = await api.get(`/users`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;
@@ -39,9 +35,7 @@ export const getTopUser = createAsyncThunk(
   "users/getTopUser",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/top`
-      );
+      const response = await api.get(`/users/top`);
       console.log("API Response:", response.data); // Konsola yazdır
 
       return response.data;
@@ -56,9 +50,7 @@ export const getUserProgress = createAsyncThunk(
   "users/getUserProgress",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await api.get(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/overallProgress/${userId}`
-      );
+      const response = await api.get(`/users/overallProgress/${userId}`);
       console.log("API Response:", response.data);
       return response.data;
     } catch (error) {
@@ -72,9 +64,7 @@ export const updateUserProgress = createAsyncThunk(
   "users/updateUserProgress",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await api.put(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/overallProgress/${userId}`
-      );
+      const response = await api.put(`/users/overallProgress/${userId}`);
       console.log("API Response:", response.data);
 
       // Burada gelen verinin doğru olduğuna emin olun
@@ -95,7 +85,7 @@ export const updateUserProfileImage = createAsyncThunk(
   async ({ userId, formData }, { rejectWithValue }) => {
     try {
       const response = await api.post(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/uploadProfileImage/${userId}`,
+        `/users/uploadProfileImage/${userId}`,
         formData,
         {
           headers: {
@@ -121,9 +111,7 @@ export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await api.delete(
-        `https://chess-course-project-backend-with-node-js.onrender.com/users/${userId}`
-      );
+      const response = await api.delete(`/users/${userId}`);
       console.log("API Response:", response.data);
       return userId;
     } catch (error) {
